@@ -16,7 +16,7 @@ public class MainInterface extends Window{
 	public MainInterface(int weight, int height, String windowName) {
 		super(weight, height, windowName);
 		
-		actionListener = new ActionListenerButton(this);
+		actionListener = new ActionListenerButton(this, null);
 		menueButtons = new CButton(actionListener, 6);
 		
 		menueButtons.createButtons(20, 20, 120, 30, 40, "posY", buttonName, buttonName);

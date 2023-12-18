@@ -11,10 +11,11 @@ import WarehouseElements.WarehouseFrame;
 
 public class ActionListenerButton implements ActionListener {
 	private MainInterface frame;
-	protected String[] buttonName = { "Kunden", "Werkstatt", "Lager", "Termine", "Mitarbeiter", "Zeiterfassung" };
+	private CustomerFrame customerFrame;
 	
-	public ActionListenerButton(MainInterface frame) {
+	public ActionListenerButton(MainInterface frame, CustomerFrame customerFrame) {
 		this.frame = frame;
+		this.customerFrame = customerFrame;
 	}
 	
 	@Override
@@ -22,18 +23,16 @@ public class ActionListenerButton implements ActionListener {
 		String buttonID = ((JButton) e.getSource()).getActionCommand();
 
 		if ("Kunden".equals(buttonID)) {
-            CustomerFrame customer = new CustomerFrame(buttonID);
-            
+            new CustomerFrame(buttonID);     
             
         } else if ("Werkstatt".equals(buttonID)) {
-        	GarageFrame garage = new GarageFrame(buttonID);
-        	
+        	new GarageFrame(buttonID);
         	 
         } else if ("Lager".equals(buttonID)) {
-        	WarehouseFrame warehouse = new WarehouseFrame(buttonID);
+        	new WarehouseFrame(buttonID);
         	 
         } else if ("Termine".equals(buttonID)) {
-        	AppointmentFrame appointment = new AppointmentFrame(buttonID);
+        	new AppointmentFrame(buttonID);
         	 
         } else if ("Mitarbeiter".equals(buttonID)) {
         	 System.out.println(buttonID);
@@ -41,6 +40,18 @@ public class ActionListenerButton implements ActionListener {
         } else if ("Zeiterfassung".equals(buttonID)) {
         	 System.out.println(buttonID);
         	 
+        } else if("Kunde hinzufügen".equals(buttonID)) {
+        	System.out.println(buttonID);
+        	
+        } else if("Kunde suchen".equals(buttonID)) {
+        	System.out.println(buttonID);
+        	
+        } else if("Kunde löschen".equals(buttonID)) {
+        	System.out.println(buttonID);
+        	
+        } else if("KKundendaten".equals(buttonID)) {
+        	System.out.println(buttonID);
+        	
         }
 		frame.dispose();
 	}

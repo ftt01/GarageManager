@@ -7,21 +7,21 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
+import CustomerElements.CustomerFrame;
 import Database.DatabaseConnection;
-import Database.DatabaseOutput;
 import MainComponents.ActionListenerButton;
 
-public class ScrollBar extends JFrame{
-	private DatabaseConnection connectionData;
-	private Window frame;
-	private DatabaseOutput output;
+public class ScrollBar extends JFrame {
 	private JTable dataTable;
 	private DefaultTableModel tableModel;
 	public JButton button;
 	private JScrollPane scrollBar;
+	private DatabaseConnection connectionData;
+	private CustomerFrame customerFrame;
 
-	public ScrollBar(Window frame, ActionListenerButton actionListener, DatabaseOutput output) {
-		this.frame = frame;
+	public ScrollBar(CustomerFrame customerFrame, DatabaseConnection connectionData) {
+		this.customerFrame = customerFrame;
+		this.connectionData = connectionData;
 	}
 
 	public void createScrollBar(boolean isVisible) {
@@ -33,24 +33,16 @@ public class ScrollBar extends JFrame{
 		dataTable.getSelectionModel();
 	}
 
-	public void createTable(String[] columnNames, TableColumn[] columns) {
+	public void createTable(int columnNumber, String[] columnName) {
 		tableModel = new DefaultTableModel();
 		dataTable = new JTable(tableModel);
-		
-		
-		columnNames = output.getColumnNames();
-        for (String columnName : columnNames) {
-            tableModel.addColumn(columnName);
-        }
 
-        columns = new TableColumn[columnNames.length];
-        for (int i = 0; i < columnNames.length; i++) {
-            columns[i] = dataTable.getColumnModel().getColumn(i);
-            columns[i].setPreferredWidth(10);
-        }
+		for (int createColumn = 0; createColumn < columnNumber; createColumn++) {
+			tableModel.addColumn(columnName[createColumn]);
+		}
 
 		createScrollBar(true);
-		frame.add(scrollBar);
+		customerFrame.add(scrollBar);
 	}
 
 	public DefaultTableModel getTableModel() {
@@ -59,5 +51,9 @@ public class ScrollBar extends JFrame{
 
 	public JTable getDataTable() {
 		return dataTable;
+	}
+
+	public JScrollPane getScrollBar() {
+		return scrollBar;
 	}
 }
