@@ -7,13 +7,13 @@ import Database.DatabaseOutput;
 import GuiElements.CButton;
 import GuiElements.ScrollBar;
 import GuiElements.Window;
-import MainComponents.ActionListenerButton;
+import Listener.ActionListenerMain;
 
 public class CustomerFrame extends Window{
-	protected static int weight = 800;
+	protected static int weight = 1000;
 	protected static int height = 500;
 	private CButton menuButton;
-	private ActionListenerButton actionListener;
+	private ActionListenerMain actionListener;
 	protected String[] columnNames = {"Kd-Nr.", "Vorname", "Nachname"};
 	private ScrollBar scrollBar;
 	private DatabaseOutput output;
@@ -23,7 +23,7 @@ public class CustomerFrame extends Window{
 	public CustomerFrame(String windowName) {
 		super(weight, height, windowName);
 
-		actionListener = new ActionListenerButton(null, this);
+		actionListener = new ActionListenerMain(null, this);
 		menuButton = new CButton(actionListener, 4);
 		connectionData = new DatabaseConnection();
 		scrollBar = new ScrollBar(this, connectionData);

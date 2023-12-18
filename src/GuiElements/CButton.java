@@ -1,20 +1,21 @@
 package GuiElements;
 
 import Design.CustomButtonRect;
-import MainComponents.ActionListenerButton;
+import Listener.ActionListenerMain;
 
 public class CButton {
-	private ActionListenerButton actionListener;
+	private ActionListenerMain actionListener;
 	private CustomButtonRect[] buttons;
 	private int number;
 	private String color1 = "#0a1c2b";
 	private String color2 = "#c2c7dd";
 	
-	public CButton(ActionListenerButton actionListener, int number) {
+	public CButton(ActionListenerMain actionListener, int number) {
 		this.actionListener = actionListener;
 		this.number = number;
 		buttons = new CustomButtonRect[number];
 	}
+
 	
 	public void createButtons(int posX, int posY, int weight, int height, int distance, String position, String[] buttonID, String[] buttonName){
 		for(int create = 0; create < number; create++) {

@@ -9,7 +9,7 @@ import javax.swing.table.TableColumn;
 
 import CustomerElements.CustomerFrame;
 import Database.DatabaseConnection;
-import MainComponents.ActionListenerButton;
+import Listener.ActionListenerMain;
 
 public class ScrollBar extends JFrame {
 	private JTable dataTable;
