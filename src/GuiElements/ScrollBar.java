@@ -5,30 +5,25 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-
-import CustomerElements.CustomerFrame;
 import Database.DatabaseConnection;
-import Listener.ActionListenerMain;
 
-public class ScrollBar extends JFrame {
+public class ScrollBar {
 	private JTable dataTable;
 	private DefaultTableModel tableModel;
 	public JButton button;
 	private JScrollPane scrollBar;
 	private DatabaseConnection connectionData;
-	private CustomerFrame customerFrame;
+	private Window frame;
 
-	public ScrollBar(CustomerFrame customerFrame, DatabaseConnection connectionData) {
-		this.customerFrame = customerFrame;
+	public ScrollBar(Window frame, DatabaseConnection connectionData) {
+		this.frame = frame;
 		this.connectionData = connectionData;
 	}
 
-	public void createScrollBar(boolean isVisible) {
+	public void createScrollBar() {
 		scrollBar = new JScrollPane(dataTable);
 		scrollBar.setBounds(200, 20, 600, 350);
-		scrollBar.setVisible(isVisible);
-		add(scrollBar);
+		frame.add(scrollBar);
 
 		dataTable.getSelectionModel();
 	}
@@ -41,8 +36,8 @@ public class ScrollBar extends JFrame {
 			tableModel.addColumn(columnName[createColumn]);
 		}
 
-		createScrollBar(true);
-		customerFrame.add(scrollBar);
+		createScrollBar();
+		frame.add(scrollBar);
 	}
 
 	public DefaultTableModel getTableModel() {

@@ -33,4 +33,5 @@ public class Window extends JFrame{
         });
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); 
 	}
+
 }

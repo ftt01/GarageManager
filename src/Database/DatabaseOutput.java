@@ -3,7 +3,7 @@ package Database;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import GuiElements.ScrollBar;
-
+ 
 public class DatabaseOutput{
 	private DatabaseConnection connectionData;
 	private ScrollBar scrollBar;
