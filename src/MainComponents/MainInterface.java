@@ -1,28 +1,28 @@
 package MainComponents;
 
 import javax.swing.JButton;
-
-import CustomerElements.CustomerWindow;
 import GuiElements.CButton;
 import GuiElements.Window;
 import Listener.ActionListenerMain;
 
 public class MainInterface extends Window{
+	private static int weight = 500;
+	private static int height = 500;
+	private static String windowName = "GarageManager";
 	private CButton menueButtons;
-	private CustomerWindow customer;
 	private ActionListenerMain actionListener;
 	protected String[] buttonName = {"Kunden", "Werkstatt", "Lager", "Termine", "Mitarbeiter", "Zeiterfassung"};
 	
-	public MainInterface(int weight, int height, String windowName) {
+	public MainInterface() {
 		super(weight, height, windowName);
-		customer = new CustomerWindow(this);
-		actionListener = new ActionListenerMain(this);
+		
+		actionListener = new ActionListenerMain(this, null, null, null, null);
 		menueButtons = new CButton(actionListener, 6);
 		
-		menueButtons.createButtons(20, 20, 120, 30, 40, "posY", buttonName, buttonName);
+		menueButtons.createButtons(180, 80, 120, 40, 40, "posY", buttonName, buttonName);
 		for(JButton button : menueButtons.getButtons()) {
 			add(button);
-		}	
+		}
 		
 		
 		setVisible(true);

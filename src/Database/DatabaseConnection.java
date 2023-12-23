@@ -41,7 +41,7 @@ public class DatabaseConnection {
 		}
 	}
 
-	public PreparedStatement prepareStatement() {
+	public PreparedStatement prepareStatement(String query) {
 		return null;
 	}
 }
